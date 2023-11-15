@@ -1,13 +1,13 @@
 import './App.css';
 import MyButton from './MyButton';
+import ListPersonComponent from './components/ListPersonComponent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="container">
         <h1>Hello World!</h1>
         <MyButton />
-      </header>
+        <ListPersonComponent />
     </div>
   );
 }
