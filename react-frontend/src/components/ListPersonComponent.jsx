@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import PersonService from '../services/PersonService';
 
 class ListPersonComponent extends Component {
-    constructor(props) {
-        super(props);
-    }
     state = { 
         listPerson: []
+    }
+    componentDidMount() {
+        PersonService.getListPerson().then((res) => {
+            this.setState({listPerson : res.data});
+        });
     }
     render() { 
         return ( 
@@ -15,9 +18,9 @@ class ListPersonComponent extends Component {
                 <table className='table table-striped table-bordered'>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Id</th>
                             <th>Fullname</th>
-                            <th>Birth Date</th>
+                            <th>Birthdate</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -27,8 +30,9 @@ class ListPersonComponent extends Component {
                                 person =>
                                 <tr key = {person.id}>
                                     <td>{person.id}</td>
-                                    <td>{person.fullName}</td>
-                                    <td>{person.birthDate}</td>
+                                    <td>{person.full_name}</td>
+                                    <td>{person.birth_date}</td>
+                                    <td></td>
                                 </tr>
 
                             )
